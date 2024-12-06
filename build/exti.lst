@@ -1,0 +1,575 @@
+ARM GAS  C:\Users\Aletter1\AppData\Local\Temp\ccjmM0aY.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.arch armv7e-m
+   3              		.fpu fpv4-sp-d16
+   4              		.eabi_attribute 27, 1
+   5              		.eabi_attribute 28, 1
+   6              		.eabi_attribute 20, 1
+   7              		.eabi_attribute 21, 1
+   8              		.eabi_attribute 23, 3
+   9              		.eabi_attribute 24, 1
+  10              		.eabi_attribute 25, 1
+  11              		.eabi_attribute 26, 1
+  12              		.eabi_attribute 30, 1
+  13              		.eabi_attribute 34, 1
+  14              		.eabi_attribute 18, 4
+  15              		.file	"exti.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.section	.text.EXTI_Queue_Init,"ax",%progbits
+  20              		.align	1
+  21              		.global	EXTI_Queue_Init
+  22              		.syntax unified
+  23              		.thumb
+  24              		.thumb_func
+  26              	EXTI_Queue_Init:
+  27              	.LFB138:
+  28              		.file 1 "BSP/Src/exti.c"
+   1:BSP/Src/exti.c **** #include "exti.h"
+   2:BSP/Src/exti.c **** 
+   3:BSP/Src/exti.c **** // 声明消息队列
+   4:BSP/Src/exti.c **** QueueHandle_t key0Queue;
+   5:BSP/Src/exti.c **** QueueHandle_t key1Queue;
+   6:BSP/Src/exti.c **** QueueHandle_t key2Queue;
+   7:BSP/Src/exti.c **** // 功能:初始化FreeRTOS环境中EXTI需要的消息队列
+   8:BSP/Src/exti.c **** // 返回值与参数:无
+   9:BSP/Src/exti.c **** // 备注:无
+  10:BSP/Src/exti.c **** void EXTI_Queue_Init(void)
+  11:BSP/Src/exti.c **** {
+  29              		.loc 1 11 1 view -0
+  30              		.cfi_startproc
+  31              		@ args = 0, pretend = 0, frame = 0
+  32              		@ frame_needed = 0, uses_anonymous_args = 0
+  33 0000 08B5     		push	{r3, lr}
+  34              	.LCFI0:
+  35              		.cfi_def_cfa_offset 8
+  36              		.cfi_offset 3, -8
+  37              		.cfi_offset 14, -4
+  12:BSP/Src/exti.c **** #if key_exti
+  13:BSP/Src/exti.c ****   key0Queue = xQueueCreate(10, sizeof(uint8_t));
+  38              		.loc 1 13 3 view .LVU1
+  39              		.loc 1 13 15 is_stmt 0 view .LVU2
+  40 0002 0022     		movs	r2, #0
+  41 0004 0121     		movs	r1, #1
+  42 0006 0A20     		movs	r0, #10
+  43 0008 FFF7FEFF 		bl	xQueueGenericCreate
+  44              	.LVL0:
+  45              		.loc 1 13 13 view .LVU3
+ARM GAS  C:\Users\Aletter1\AppData\Local\Temp\ccjmM0aY.s 			page 2
+
+
+  46 000c 084B     		ldr	r3, .L3
+  47 000e 1860     		str	r0, [r3]
+  14:BSP/Src/exti.c ****   key1Queue = xQueueCreate(10, sizeof(uint8_t));
+  48              		.loc 1 14 3 is_stmt 1 view .LVU4
+  49              		.loc 1 14 15 is_stmt 0 view .LVU5
+  50 0010 0022     		movs	r2, #0
+  51 0012 0121     		movs	r1, #1
+  52 0014 0A20     		movs	r0, #10
+  53 0016 FFF7FEFF 		bl	xQueueGenericCreate
+  54              	.LVL1:
+  55              		.loc 1 14 13 view .LVU6
+  56 001a 064B     		ldr	r3, .L3+4
+  57 001c 1860     		str	r0, [r3]
+  15:BSP/Src/exti.c ****   key2Queue = xQueueCreate(10, sizeof(uint8_t));
+  58              		.loc 1 15 3 is_stmt 1 view .LVU7
+  59              		.loc 1 15 15 is_stmt 0 view .LVU8
+  60 001e 0022     		movs	r2, #0
+  61 0020 0121     		movs	r1, #1
+  62 0022 0A20     		movs	r0, #10
+  63 0024 FFF7FEFF 		bl	xQueueGenericCreate
+  64              	.LVL2:
+  65              		.loc 1 15 13 view .LVU9
+  66 0028 034B     		ldr	r3, .L3+8
+  67 002a 1860     		str	r0, [r3]
+  16:BSP/Src/exti.c **** #endif
+  17:BSP/Src/exti.c **** }
+  68              		.loc 1 17 1 view .LVU10
+  69 002c 08BD     		pop	{r3, pc}
+  70              	.L4:
+  71 002e 00BF     		.align	2
+  72              	.L3:
+  73 0030 00000000 		.word	.LANCHOR0
+  74 0034 00000000 		.word	.LANCHOR1
+  75 0038 00000000 		.word	.LANCHOR2
+  76              		.cfi_endproc
+  77              	.LFE138:
+  79              		.section	.text.MX_EXTI_Init,"ax",%progbits
+  80              		.align	1
+  81              		.global	MX_EXTI_Init
+  82              		.syntax unified
+  83              		.thumb
+  84              		.thumb_func
+  86              	MX_EXTI_Init:
+  87              	.LFB139:
+  18:BSP/Src/exti.c **** // 功能:初始化EXTI
+  19:BSP/Src/exti.c **** // 返回值与参数:无
+  20:BSP/Src/exti.c **** // 备注:
+  21:BSP/Src/exti.c **** /*设置抢断优先级，HAL库设置中断分组为NVIC_PRIORITYGROUP_4,
+  22:BSP/Src/exti.c **** 即4位抢占优先级，0位子优先级4位抢占优先级，0位子优先级*/
+  23:BSP/Src/exti.c **** void MX_EXTI_Init(void)
+  24:BSP/Src/exti.c **** {
+  88              		.loc 1 24 1 is_stmt 1 view -0
+  89              		.cfi_startproc
+  90              		@ args = 0, pretend = 0, frame = 0
+  91              		@ frame_needed = 0, uses_anonymous_args = 0
+  92 0000 08B5     		push	{r3, lr}
+  93              	.LCFI1:
+ARM GAS  C:\Users\Aletter1\AppData\Local\Temp\ccjmM0aY.s 			page 3
+
+
+  94              		.cfi_def_cfa_offset 8
+  95              		.cfi_offset 3, -8
+  96              		.cfi_offset 14, -4
+  25:BSP/Src/exti.c **** #if key_exti
+  26:BSP/Src/exti.c ****   // 设置中断优先级
+  27:BSP/Src/exti.c ****   HAL_NVIC_SetPriority(KEY0_INT_IRQn, 6, 0); /* 抢占6，子优先级2 */
+  97              		.loc 1 27 3 view .LVU12
+  98 0002 0022     		movs	r2, #0
+  99 0004 0621     		movs	r1, #6
+ 100 0006 0820     		movs	r0, #8
+ 101 0008 FFF7FEFF 		bl	HAL_NVIC_SetPriority
+ 102              	.LVL3:
+  28:BSP/Src/exti.c ****   HAL_NVIC_EnableIRQ(KEY0_INT_IRQn);         /* 使能中断线1 */
+ 103              		.loc 1 28 3 view .LVU13
+ 104 000c 0820     		movs	r0, #8
+ 105 000e FFF7FEFF 		bl	HAL_NVIC_EnableIRQ
+ 106              	.LVL4:
+  29:BSP/Src/exti.c **** 
+  30:BSP/Src/exti.c ****   HAL_NVIC_SetPriority(KEY1_INT_IRQn, 6, 1); /* 抢占6，子优先级2 */
+ 107              		.loc 1 30 3 view .LVU14
+ 108 0012 0122     		movs	r2, #1
+ 109 0014 0621     		movs	r1, #6
+ 110 0016 0920     		movs	r0, #9
+ 111 0018 FFF7FEFF 		bl	HAL_NVIC_SetPriority
+ 112              	.LVL5:
+  31:BSP/Src/exti.c ****   HAL_NVIC_EnableIRQ(KEY1_INT_IRQn);         /* 使能中断线15 */
+ 113              		.loc 1 31 3 view .LVU15
+ 114 001c 0920     		movs	r0, #9
+ 115 001e FFF7FEFF 		bl	HAL_NVIC_EnableIRQ
+ 116              	.LVL6:
+  32:BSP/Src/exti.c **** 
+  33:BSP/Src/exti.c ****   HAL_NVIC_SetPriority(KEY2_INT_IRQn, 6, 2); /* 抢占6，子优先级2 */
+ 117              		.loc 1 33 3 view .LVU16
+ 118 0022 0222     		movs	r2, #2
+ 119 0024 0621     		movs	r1, #6
+ 120 0026 0A20     		movs	r0, #10
+ 121 0028 FFF7FEFF 		bl	HAL_NVIC_SetPriority
+ 122              	.LVL7:
+  34:BSP/Src/exti.c ****   HAL_NVIC_EnableIRQ(KEY2_INT_IRQn);         /* 使能中断线15 */
+ 123              		.loc 1 34 3 view .LVU17
+ 124 002c 0A20     		movs	r0, #10
+ 125 002e FFF7FEFF 		bl	HAL_NVIC_EnableIRQ
+ 126              	.LVL8:
+  35:BSP/Src/exti.c **** #endif                                       // 0
+  36:BSP/Src/exti.c **** }
+ 127              		.loc 1 36 1 is_stmt 0 view .LVU18
+ 128 0032 08BD     		pop	{r3, pc}
+ 129              		.cfi_endproc
+ 130              	.LFE139:
+ 132              		.section	.text.EXTI2_IRQHandler,"ax",%progbits
+ 133              		.align	1
+ 134              		.global	EXTI2_IRQHandler
+ 135              		.syntax unified
+ 136              		.thumb
+ 137              		.thumb_func
+ 139              	EXTI2_IRQHandler:
+ 140              	.LFB140:
+ARM GAS  C:\Users\Aletter1\AppData\Local\Temp\ccjmM0aY.s 			page 4
+
+
+  37:BSP/Src/exti.c **** 
+  38:BSP/Src/exti.c **** void EXTI2_IRQHandler(void)
+  39:BSP/Src/exti.c **** {
+ 141              		.loc 1 39 1 is_stmt 1 view -0
+ 142              		.cfi_startproc
+ 143              		@ args = 0, pretend = 0, frame = 0
+ 144              		@ frame_needed = 0, uses_anonymous_args = 0
+ 145 0000 08B5     		push	{r3, lr}
+ 146              	.LCFI2:
+ 147              		.cfi_def_cfa_offset 8
+ 148              		.cfi_offset 3, -8
+ 149              		.cfi_offset 14, -4
+  40:BSP/Src/exti.c ****   HAL_GPIO_EXTI_IRQHandler(KEY0_GPIO_PIN); /* 调用中断处理公用函数 清除KEY0所在中断
+ 150              		.loc 1 40 3 view .LVU20
+ 151 0002 0420     		movs	r0, #4
+ 152 0004 FFF7FEFF 		bl	HAL_GPIO_EXTI_IRQHandler
+ 153              	.LVL9:
+  41:BSP/Src/exti.c ****   __HAL_GPIO_EXTI_CLEAR_IT(KEY0_GPIO_PIN);
+ 154              		.loc 1 41 3 view .LVU21
+ 155 0008 014B     		ldr	r3, .L9
+ 156 000a 0422     		movs	r2, #4
+ 157 000c 5A61     		str	r2, [r3, #20]
+  42:BSP/Src/exti.c **** }
+ 158              		.loc 1 42 1 is_stmt 0 view .LVU22
+ 159 000e 08BD     		pop	{r3, pc}
+ 160              	.L10:
+ 161              		.align	2
+ 162              	.L9:
+ 163 0010 003C0140 		.word	1073822720
+ 164              		.cfi_endproc
+ 165              	.LFE140:
+ 167              		.section	.text.EXTI3_IRQHandler,"ax",%progbits
+ 168              		.align	1
+ 169              		.global	EXTI3_IRQHandler
+ 170              		.syntax unified
+ 171              		.thumb
+ 172              		.thumb_func
+ 174              	EXTI3_IRQHandler:
+ 175              	.LFB141:
+  43:BSP/Src/exti.c **** void EXTI3_IRQHandler(void)
+  44:BSP/Src/exti.c **** {
+ 176              		.loc 1 44 1 is_stmt 1 view -0
+ 177              		.cfi_startproc
+ 178              		@ args = 0, pretend = 0, frame = 0
+ 179              		@ frame_needed = 0, uses_anonymous_args = 0
+ 180 0000 08B5     		push	{r3, lr}
+ 181              	.LCFI3:
+ 182              		.cfi_def_cfa_offset 8
+ 183              		.cfi_offset 3, -8
+ 184              		.cfi_offset 14, -4
+  45:BSP/Src/exti.c ****   HAL_GPIO_EXTI_IRQHandler(KEY1_GPIO_PIN); /* 调用中断处理公用函数 清除KEY0所在中断
+ 185              		.loc 1 45 3 view .LVU24
+ 186 0002 0820     		movs	r0, #8
+ 187 0004 FFF7FEFF 		bl	HAL_GPIO_EXTI_IRQHandler
+ 188              	.LVL10:
+  46:BSP/Src/exti.c ****   __HAL_GPIO_EXTI_CLEAR_IT(KEY1_GPIO_PIN);
+ 189              		.loc 1 46 3 view .LVU25
+ARM GAS  C:\Users\Aletter1\AppData\Local\Temp\ccjmM0aY.s 			page 5
+
+
+ 190 0008 014B     		ldr	r3, .L13
+ 191 000a 0822     		movs	r2, #8
+ 192 000c 5A61     		str	r2, [r3, #20]
+  47:BSP/Src/exti.c **** }
+ 193              		.loc 1 47 1 is_stmt 0 view .LVU26
+ 194 000e 08BD     		pop	{r3, pc}
+ 195              	.L14:
+ 196              		.align	2
+ 197              	.L13:
+ 198 0010 003C0140 		.word	1073822720
+ 199              		.cfi_endproc
+ 200              	.LFE141:
+ 202              		.section	.text.EXTI4_IRQHandler,"ax",%progbits
+ 203              		.align	1
+ 204              		.global	EXTI4_IRQHandler
+ 205              		.syntax unified
+ 206              		.thumb
+ 207              		.thumb_func
+ 209              	EXTI4_IRQHandler:
+ 210              	.LFB142:
+  48:BSP/Src/exti.c **** void EXTI4_IRQHandler(void)
+  49:BSP/Src/exti.c **** {
+ 211              		.loc 1 49 1 is_stmt 1 view -0
+ 212              		.cfi_startproc
+ 213              		@ args = 0, pretend = 0, frame = 0
+ 214              		@ frame_needed = 0, uses_anonymous_args = 0
+ 215 0000 08B5     		push	{r3, lr}
+ 216              	.LCFI4:
+ 217              		.cfi_def_cfa_offset 8
+ 218              		.cfi_offset 3, -8
+ 219              		.cfi_offset 14, -4
+  50:BSP/Src/exti.c ****   HAL_GPIO_EXTI_IRQHandler(KEY2_GPIO_PIN); /* 调用中断处理公用函数 清除KEY0所在中断
+ 220              		.loc 1 50 3 view .LVU28
+ 221 0002 1020     		movs	r0, #16
+ 222 0004 FFF7FEFF 		bl	HAL_GPIO_EXTI_IRQHandler
+ 223              	.LVL11:
+  51:BSP/Src/exti.c ****   __HAL_GPIO_EXTI_CLEAR_IT(KEY2_GPIO_PIN);
+ 224              		.loc 1 51 3 view .LVU29
+ 225 0008 014B     		ldr	r3, .L17
+ 226 000a 1022     		movs	r2, #16
+ 227 000c 5A61     		str	r2, [r3, #20]
+  52:BSP/Src/exti.c **** }
+ 228              		.loc 1 52 1 is_stmt 0 view .LVU30
+ 229 000e 08BD     		pop	{r3, pc}
+ 230              	.L18:
+ 231              		.align	2
+ 232              	.L17:
+ 233 0010 003C0140 		.word	1073822720
+ 234              		.cfi_endproc
+ 235              	.LFE142:
+ 237              		.section	.text.HAL_GPIO_EXTI_Callback,"ax",%progbits
+ 238              		.align	1
+ 239              		.global	HAL_GPIO_EXTI_Callback
+ 240              		.syntax unified
+ 241              		.thumb
+ 242              		.thumb_func
+ 244              	HAL_GPIO_EXTI_Callback:
+ARM GAS  C:\Users\Aletter1\AppData\Local\Temp\ccjmM0aY.s 			page 6
+
+
+ 245              	.LVL12:
+ 246              	.LFB143:
+  53:BSP/Src/exti.c **** /**
+  54:BSP/Src/exti.c ****  * @brief       中断服务程序中需要做的事情
+  55:BSP/Src/exti.c ****                 在HAL库中所有的外部中断服务函数都会调用此函数
+  56:BSP/Src/exti.c ****  * @param       GPIO_Pin:中断引脚号
+  57:BSP/Src/exti.c ****  * @retval      无
+  58:BSP/Src/exti.c ****  */
+  59:BSP/Src/exti.c **** void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
+  60:BSP/Src/exti.c **** {
+ 247              		.loc 1 60 1 is_stmt 1 view -0
+ 248              		.cfi_startproc
+ 249              		@ args = 0, pretend = 0, frame = 0
+ 250              		@ frame_needed = 0, uses_anonymous_args = 0
+ 251              		.loc 1 60 1 is_stmt 0 view .LVU32
+ 252 0000 10B5     		push	{r4, lr}
+ 253              	.LCFI5:
+ 254              		.cfi_def_cfa_offset 8
+ 255              		.cfi_offset 4, -8
+ 256              		.cfi_offset 14, -4
+ 257 0002 0446     		mov	r4, r0
+  61:BSP/Src/exti.c ****   uint8_t key0_level;
+ 258              		.loc 1 61 3 is_stmt 1 view .LVU33
+  62:BSP/Src/exti.c ****   uint8_t key1_level;
+ 259              		.loc 1 62 3 view .LVU34
+  63:BSP/Src/exti.c ****   uint8_t key2_level;
+ 260              		.loc 1 63 3 view .LVU35
+  64:BSP/Src/exti.c ****   static uint32_t last_time = 0;
+ 261              		.loc 1 64 3 view .LVU36
+  65:BSP/Src/exti.c ****   uint32_t current_time     = HAL_GetTick();
+ 262              		.loc 1 65 3 view .LVU37
+ 263              		.loc 1 65 31 is_stmt 0 view .LVU38
+ 264 0004 FFF7FEFF 		bl	HAL_GetTick
+ 265              	.LVL13:
+  66:BSP/Src/exti.c ****   if ((current_time - last_time) > 20) {
+ 266              		.loc 1 66 3 is_stmt 1 view .LVU39
+ 267              		.loc 1 66 21 is_stmt 0 view .LVU40
+ 268 0008 1B4B     		ldr	r3, .L25
+ 269 000a 1B68     		ldr	r3, [r3]
+ 270 000c C31A     		subs	r3, r0, r3
+ 271              		.loc 1 66 6 view .LVU41
+ 272 000e 142B     		cmp	r3, #20
+ 273 0010 07D9     		bls	.L19
+  67:BSP/Src/exti.c ****     last_time = current_time;
+ 274              		.loc 1 67 5 is_stmt 1 view .LVU42
+ 275              		.loc 1 67 15 is_stmt 0 view .LVU43
+ 276 0012 194B     		ldr	r3, .L25
+ 277 0014 1860     		str	r0, [r3]
+  68:BSP/Src/exti.c ****     switch (GPIO_Pin) {
+ 278              		.loc 1 68 5 is_stmt 1 view .LVU44
+ 279 0016 082C     		cmp	r4, #8
+ 280 0018 12D0     		beq	.L21
+ 281 001a 102C     		cmp	r4, #16
+ 282 001c 1ED0     		beq	.L22
+ 283 001e 042C     		cmp	r4, #4
+ 284 0020 00D0     		beq	.L24
+ 285              	.LVL14:
+ARM GAS  C:\Users\Aletter1\AppData\Local\Temp\ccjmM0aY.s 			page 7
+
+
+ 286              	.L19:
+  69:BSP/Src/exti.c ****       case KEY0_GPIO_PIN:
+  70:BSP/Src/exti.c ****         key0_level = HAL_GPIO_ReadPin(KEY0_GPIO_PORT, KEY0_GPIO_PIN);
+  71:BSP/Src/exti.c ****         if (key0_level == GPIO_PIN_RESET) {
+  72:BSP/Src/exti.c ****           xQueueSendFromISR(key0Queue, (void *)1, NULL);
+  73:BSP/Src/exti.c ****         }
+  74:BSP/Src/exti.c ****         break;
+  75:BSP/Src/exti.c ****       case KEY1_GPIO_PIN:
+  76:BSP/Src/exti.c ****         key1_level = HAL_GPIO_ReadPin(KEY1_GPIO_PORT, KEY1_GPIO_PIN);
+  77:BSP/Src/exti.c ****         if (key1_level == GPIO_PIN_RESET) {
+  78:BSP/Src/exti.c ****           xQueueSendFromISR(key1Queue, (void *)1, NULL);
+  79:BSP/Src/exti.c ****         }
+  80:BSP/Src/exti.c ****         break;
+  81:BSP/Src/exti.c ****       case KEY2_GPIO_PIN:
+  82:BSP/Src/exti.c ****         key2_level = HAL_GPIO_ReadPin(KEY2_GPIO_PORT, KEY2_GPIO_PIN);
+  83:BSP/Src/exti.c ****         if (key2_level == GPIO_PIN_RESET) {
+  84:BSP/Src/exti.c ****           xQueueSendFromISR(key2Queue, (void *)1, NULL);
+  85:BSP/Src/exti.c ****         }
+  86:BSP/Src/exti.c ****         break;
+  87:BSP/Src/exti.c ****       default:
+  88:BSP/Src/exti.c ****         break;
+  89:BSP/Src/exti.c ****     }
+  90:BSP/Src/exti.c ****   }
+  91:BSP/Src/exti.c **** }
+ 287              		.loc 1 91 1 is_stmt 0 view .LVU45
+ 288 0022 10BD     		pop	{r4, pc}
+ 289              	.LVL15:
+ 290              	.L24:
+  70:BSP/Src/exti.c ****         if (key0_level == GPIO_PIN_RESET) {
+ 291              		.loc 1 70 9 is_stmt 1 view .LVU46
+  70:BSP/Src/exti.c ****         if (key0_level == GPIO_PIN_RESET) {
+ 292              		.loc 1 70 22 is_stmt 0 view .LVU47
+ 293 0024 0421     		movs	r1, #4
+ 294 0026 1548     		ldr	r0, .L25+4
+ 295              	.LVL16:
+  70:BSP/Src/exti.c ****         if (key0_level == GPIO_PIN_RESET) {
+ 296              		.loc 1 70 22 view .LVU48
+ 297 0028 FFF7FEFF 		bl	HAL_GPIO_ReadPin
+ 298              	.LVL17:
+  71:BSP/Src/exti.c ****           xQueueSendFromISR(key0Queue, (void *)1, NULL);
+ 299              		.loc 1 71 9 is_stmt 1 view .LVU49
+  71:BSP/Src/exti.c ****           xQueueSendFromISR(key0Queue, (void *)1, NULL);
+ 300              		.loc 1 71 12 is_stmt 0 view .LVU50
+ 301 002c 0028     		cmp	r0, #0
+ 302 002e F8D1     		bne	.L19
+  72:BSP/Src/exti.c ****         }
+ 303              		.loc 1 72 11 is_stmt 1 view .LVU51
+ 304 0030 0023     		movs	r3, #0
+ 305 0032 1A46     		mov	r2, r3
+ 306 0034 0121     		movs	r1, #1
+ 307 0036 1248     		ldr	r0, .L25+8
+ 308              	.LVL18:
+  72:BSP/Src/exti.c ****         }
+ 309              		.loc 1 72 11 is_stmt 0 view .LVU52
+ 310 0038 0068     		ldr	r0, [r0]
+ 311 003a FFF7FEFF 		bl	xQueueGenericSendFromISR
+ 312              	.LVL19:
+ARM GAS  C:\Users\Aletter1\AppData\Local\Temp\ccjmM0aY.s 			page 8
+
+
+ 313 003e F0E7     		b	.L19
+ 314              	.LVL20:
+ 315              	.L21:
+  76:BSP/Src/exti.c ****         if (key1_level == GPIO_PIN_RESET) {
+ 316              		.loc 1 76 9 is_stmt 1 view .LVU53
+  76:BSP/Src/exti.c ****         if (key1_level == GPIO_PIN_RESET) {
+ 317              		.loc 1 76 22 is_stmt 0 view .LVU54
+ 318 0040 0821     		movs	r1, #8
+ 319 0042 0E48     		ldr	r0, .L25+4
+ 320              	.LVL21:
+  76:BSP/Src/exti.c ****         if (key1_level == GPIO_PIN_RESET) {
+ 321              		.loc 1 76 22 view .LVU55
+ 322 0044 FFF7FEFF 		bl	HAL_GPIO_ReadPin
+ 323              	.LVL22:
+  77:BSP/Src/exti.c ****           xQueueSendFromISR(key1Queue, (void *)1, NULL);
+ 324              		.loc 1 77 9 is_stmt 1 view .LVU56
+  77:BSP/Src/exti.c ****           xQueueSendFromISR(key1Queue, (void *)1, NULL);
+ 325              		.loc 1 77 12 is_stmt 0 view .LVU57
+ 326 0048 0028     		cmp	r0, #0
+ 327 004a EAD1     		bne	.L19
+  78:BSP/Src/exti.c ****         }
+ 328              		.loc 1 78 11 is_stmt 1 view .LVU58
+ 329 004c 0023     		movs	r3, #0
+ 330 004e 1A46     		mov	r2, r3
+ 331 0050 0121     		movs	r1, #1
+ 332 0052 0C48     		ldr	r0, .L25+12
+ 333              	.LVL23:
+  78:BSP/Src/exti.c ****         }
+ 334              		.loc 1 78 11 is_stmt 0 view .LVU59
+ 335 0054 0068     		ldr	r0, [r0]
+ 336 0056 FFF7FEFF 		bl	xQueueGenericSendFromISR
+ 337              	.LVL24:
+ 338 005a E2E7     		b	.L19
+ 339              	.LVL25:
+ 340              	.L22:
+  82:BSP/Src/exti.c ****         if (key2_level == GPIO_PIN_RESET) {
+ 341              		.loc 1 82 9 is_stmt 1 view .LVU60
+  82:BSP/Src/exti.c ****         if (key2_level == GPIO_PIN_RESET) {
+ 342              		.loc 1 82 22 is_stmt 0 view .LVU61
+ 343 005c 1021     		movs	r1, #16
+ 344 005e 0748     		ldr	r0, .L25+4
+ 345              	.LVL26:
+  82:BSP/Src/exti.c ****         if (key2_level == GPIO_PIN_RESET) {
+ 346              		.loc 1 82 22 view .LVU62
+ 347 0060 FFF7FEFF 		bl	HAL_GPIO_ReadPin
+ 348              	.LVL27:
+  83:BSP/Src/exti.c ****           xQueueSendFromISR(key2Queue, (void *)1, NULL);
+ 349              		.loc 1 83 9 is_stmt 1 view .LVU63
+  83:BSP/Src/exti.c ****           xQueueSendFromISR(key2Queue, (void *)1, NULL);
+ 350              		.loc 1 83 12 is_stmt 0 view .LVU64
+ 351 0064 0028     		cmp	r0, #0
+ 352 0066 DCD1     		bne	.L19
+  84:BSP/Src/exti.c ****         }
+ 353              		.loc 1 84 11 is_stmt 1 view .LVU65
+ 354 0068 0023     		movs	r3, #0
+ 355 006a 1A46     		mov	r2, r3
+ 356 006c 0121     		movs	r1, #1
+ARM GAS  C:\Users\Aletter1\AppData\Local\Temp\ccjmM0aY.s 			page 9
+
+
+ 357 006e 0648     		ldr	r0, .L25+16
+ 358              	.LVL28:
+  84:BSP/Src/exti.c ****         }
+ 359              		.loc 1 84 11 is_stmt 0 view .LVU66
+ 360 0070 0068     		ldr	r0, [r0]
+ 361 0072 FFF7FEFF 		bl	xQueueGenericSendFromISR
+ 362              	.LVL29:
+ 363              		.loc 1 91 1 view .LVU67
+ 364 0076 D4E7     		b	.L19
+ 365              	.L26:
+ 366              		.align	2
+ 367              	.L25:
+ 368 0078 00000000 		.word	.LANCHOR3
+ 369 007c 00100240 		.word	1073876992
+ 370 0080 00000000 		.word	.LANCHOR0
+ 371 0084 00000000 		.word	.LANCHOR1
+ 372 0088 00000000 		.word	.LANCHOR2
+ 373              		.cfi_endproc
+ 374              	.LFE143:
+ 376              		.global	key2Queue
+ 377              		.global	key1Queue
+ 378              		.global	key0Queue
+ 379              		.section	.bss.key0Queue,"aw",%nobits
+ 380              		.align	2
+ 381              		.set	.LANCHOR0,. + 0
+ 384              	key0Queue:
+ 385 0000 00000000 		.space	4
+ 386              		.section	.bss.key1Queue,"aw",%nobits
+ 387              		.align	2
+ 388              		.set	.LANCHOR1,. + 0
+ 391              	key1Queue:
+ 392 0000 00000000 		.space	4
+ 393              		.section	.bss.key2Queue,"aw",%nobits
+ 394              		.align	2
+ 395              		.set	.LANCHOR2,. + 0
+ 398              	key2Queue:
+ 399 0000 00000000 		.space	4
+ 400              		.section	.bss.last_time.0,"aw",%nobits
+ 401              		.align	2
+ 402              		.set	.LANCHOR3,. + 0
+ 405              	last_time.0:
+ 406 0000 00000000 		.space	4
+ 407              		.text
+ 408              	.Letext0:
+ 409              		.file 2 "d:\\program files (x86)\\gnutools\\gcc-arm-none-eabi-win32\\arm-none-eabi\\include\\machi
+ 410              		.file 3 "d:\\program files (x86)\\gnutools\\gcc-arm-none-eabi-win32\\arm-none-eabi\\include\\sys\\
+ 411              		.file 4 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f407xx.h"
+ 412              		.file 5 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_gpio.h"
+ 413              		.file 6 "Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/portmacro.h"
+ 414              		.file 7 "Middlewares/Third_Party/FreeRTOS/Source/include/queue.h"
+ 415              		.file 8 "BSP/Inc/exti.h"
+ 416              		.file 9 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h"
+ 417              		.file 10 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_cortex.h"
+ARM GAS  C:\Users\Aletter1\AppData\Local\Temp\ccjmM0aY.s 			page 10
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 exti.c
+C:\Users\Aletter1\AppData\Local\Temp\ccjmM0aY.s:20     .text.EXTI_Queue_Init:00000000 $t
+C:\Users\Aletter1\AppData\Local\Temp\ccjmM0aY.s:26     .text.EXTI_Queue_Init:00000000 EXTI_Queue_Init
+C:\Users\Aletter1\AppData\Local\Temp\ccjmM0aY.s:73     .text.EXTI_Queue_Init:00000030 $d
+C:\Users\Aletter1\AppData\Local\Temp\ccjmM0aY.s:80     .text.MX_EXTI_Init:00000000 $t
+C:\Users\Aletter1\AppData\Local\Temp\ccjmM0aY.s:86     .text.MX_EXTI_Init:00000000 MX_EXTI_Init
+C:\Users\Aletter1\AppData\Local\Temp\ccjmM0aY.s:133    .text.EXTI2_IRQHandler:00000000 $t
+C:\Users\Aletter1\AppData\Local\Temp\ccjmM0aY.s:139    .text.EXTI2_IRQHandler:00000000 EXTI2_IRQHandler
+C:\Users\Aletter1\AppData\Local\Temp\ccjmM0aY.s:163    .text.EXTI2_IRQHandler:00000010 $d
+C:\Users\Aletter1\AppData\Local\Temp\ccjmM0aY.s:168    .text.EXTI3_IRQHandler:00000000 $t
+C:\Users\Aletter1\AppData\Local\Temp\ccjmM0aY.s:174    .text.EXTI3_IRQHandler:00000000 EXTI3_IRQHandler
+C:\Users\Aletter1\AppData\Local\Temp\ccjmM0aY.s:198    .text.EXTI3_IRQHandler:00000010 $d
+C:\Users\Aletter1\AppData\Local\Temp\ccjmM0aY.s:203    .text.EXTI4_IRQHandler:00000000 $t
+C:\Users\Aletter1\AppData\Local\Temp\ccjmM0aY.s:209    .text.EXTI4_IRQHandler:00000000 EXTI4_IRQHandler
+C:\Users\Aletter1\AppData\Local\Temp\ccjmM0aY.s:233    .text.EXTI4_IRQHandler:00000010 $d
+C:\Users\Aletter1\AppData\Local\Temp\ccjmM0aY.s:238    .text.HAL_GPIO_EXTI_Callback:00000000 $t
+C:\Users\Aletter1\AppData\Local\Temp\ccjmM0aY.s:244    .text.HAL_GPIO_EXTI_Callback:00000000 HAL_GPIO_EXTI_Callback
+C:\Users\Aletter1\AppData\Local\Temp\ccjmM0aY.s:368    .text.HAL_GPIO_EXTI_Callback:00000078 $d
+C:\Users\Aletter1\AppData\Local\Temp\ccjmM0aY.s:398    .bss.key2Queue:00000000 key2Queue
+C:\Users\Aletter1\AppData\Local\Temp\ccjmM0aY.s:391    .bss.key1Queue:00000000 key1Queue
+C:\Users\Aletter1\AppData\Local\Temp\ccjmM0aY.s:384    .bss.key0Queue:00000000 key0Queue
+C:\Users\Aletter1\AppData\Local\Temp\ccjmM0aY.s:380    .bss.key0Queue:00000000 $d
+C:\Users\Aletter1\AppData\Local\Temp\ccjmM0aY.s:387    .bss.key1Queue:00000000 $d
+C:\Users\Aletter1\AppData\Local\Temp\ccjmM0aY.s:394    .bss.key2Queue:00000000 $d
+C:\Users\Aletter1\AppData\Local\Temp\ccjmM0aY.s:401    .bss.last_time.0:00000000 $d
+C:\Users\Aletter1\AppData\Local\Temp\ccjmM0aY.s:405    .bss.last_time.0:00000000 last_time.0
+
+UNDEFINED SYMBOLS
+xQueueGenericCreate
+HAL_NVIC_SetPriority
+HAL_NVIC_EnableIRQ
+HAL_GPIO_EXTI_IRQHandler
+HAL_GetTick
+HAL_GPIO_ReadPin
+xQueueGenericSendFromISR

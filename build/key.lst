@@ -1,0 +1,457 @@
+ARM GAS  C:\Users\Aletter1\AppData\Local\Temp\ccrnF0ch.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.arch armv7e-m
+   3              		.fpu fpv4-sp-d16
+   4              		.eabi_attribute 27, 1
+   5              		.eabi_attribute 28, 1
+   6              		.eabi_attribute 20, 1
+   7              		.eabi_attribute 21, 1
+   8              		.eabi_attribute 23, 3
+   9              		.eabi_attribute 24, 1
+  10              		.eabi_attribute 25, 1
+  11              		.eabi_attribute 26, 1
+  12              		.eabi_attribute 30, 1
+  13              		.eabi_attribute 34, 1
+  14              		.eabi_attribute 18, 4
+  15              		.file	"key.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.section	.text.KEY_GPIO_Init,"ax",%progbits
+  20              		.align	1
+  21              		.global	KEY_GPIO_Init
+  22              		.syntax unified
+  23              		.thumb
+  24              		.thumb_func
+  26              	KEY_GPIO_Init:
+  27              	.LFB134:
+  28              		.file 1 "Function/Src/key.c"
+   1:Function/Src/key.c **** #include "key.h"
+   2:Function/Src/key.c **** void KEY_GPIO_Init(void)
+   3:Function/Src/key.c **** {
+  29              		.loc 1 3 1 view -0
+  30              		.cfi_startproc
+  31              		@ args = 0, pretend = 0, frame = 32
+  32              		@ frame_needed = 0, uses_anonymous_args = 0
+  33 0000 F0B5     		push	{r4, r5, r6, r7, lr}
+  34              	.LCFI0:
+  35              		.cfi_def_cfa_offset 20
+  36              		.cfi_offset 4, -20
+  37              		.cfi_offset 5, -16
+  38              		.cfi_offset 6, -12
+  39              		.cfi_offset 7, -8
+  40              		.cfi_offset 14, -4
+  41 0002 89B0     		sub	sp, sp, #36
+  42              	.LCFI1:
+  43              		.cfi_def_cfa_offset 56
+   4:Function/Src/key.c ****   /* GPIO配置参数存储变量 */
+   5:Function/Src/key.c ****   GPIO_InitTypeDef gpio_init_struct;
+  44              		.loc 1 5 3 view .LVU1
+   6:Function/Src/key.c ****   // 初始化时钟
+   7:Function/Src/key.c ****   KEY0_GPIO_CLK_ENABLE();
+  45              		.loc 1 7 3 view .LVU2
+  46              		.loc 1 7 3 view .LVU3
+  47              	.LBB2:
+  48              		.loc 1 7 3 view .LVU4
+  49 0004 0022     		movs	r2, #0
+  50 0006 0092     		str	r2, [sp]
+  51              		.loc 1 7 3 view .LVU5
+ARM GAS  C:\Users\Aletter1\AppData\Local\Temp\ccrnF0ch.s 			page 2
+
+
+  52 0008 204B     		ldr	r3, .L3
+  53 000a 196B     		ldr	r1, [r3, #48]
+  54 000c 41F01001 		orr	r1, r1, #16
+  55 0010 1963     		str	r1, [r3, #48]
+  56              		.loc 1 7 3 view .LVU6
+  57 0012 196B     		ldr	r1, [r3, #48]
+  58 0014 01F01001 		and	r1, r1, #16
+  59 0018 0091     		str	r1, [sp]
+  60              		.loc 1 7 3 view .LVU7
+  61 001a 0099     		ldr	r1, [sp]
+  62              	.LBE2:
+  63              		.loc 1 7 3 view .LVU8
+  64              		.loc 1 7 3 view .LVU9
+   8:Function/Src/key.c ****   KEY1_GPIO_CLK_ENABLE();
+  65              		.loc 1 8 3 view .LVU10
+  66              		.loc 1 8 3 view .LVU11
+  67              	.LBB3:
+  68              		.loc 1 8 3 view .LVU12
+  69 001c 0192     		str	r2, [sp, #4]
+  70              		.loc 1 8 3 view .LVU13
+  71 001e 196B     		ldr	r1, [r3, #48]
+  72 0020 41F01001 		orr	r1, r1, #16
+  73 0024 1963     		str	r1, [r3, #48]
+  74              		.loc 1 8 3 view .LVU14
+  75 0026 196B     		ldr	r1, [r3, #48]
+  76 0028 01F01001 		and	r1, r1, #16
+  77 002c 0191     		str	r1, [sp, #4]
+  78              		.loc 1 8 3 view .LVU15
+  79 002e 0199     		ldr	r1, [sp, #4]
+  80              	.LBE3:
+  81              		.loc 1 8 3 view .LVU16
+  82              		.loc 1 8 3 view .LVU17
+   9:Function/Src/key.c ****   KEY2_GPIO_CLK_ENABLE();
+  83              		.loc 1 9 3 view .LVU18
+  84              		.loc 1 9 3 view .LVU19
+  85              	.LBB4:
+  86              		.loc 1 9 3 view .LVU20
+  87 0030 0292     		str	r2, [sp, #8]
+  88              		.loc 1 9 3 view .LVU21
+  89 0032 1A6B     		ldr	r2, [r3, #48]
+  90 0034 42F01002 		orr	r2, r2, #16
+  91 0038 1A63     		str	r2, [r3, #48]
+  92              		.loc 1 9 3 view .LVU22
+  93 003a 1B6B     		ldr	r3, [r3, #48]
+  94 003c 03F01003 		and	r3, r3, #16
+  95 0040 0293     		str	r3, [sp, #8]
+  96              		.loc 1 9 3 view .LVU23
+  97 0042 029B     		ldr	r3, [sp, #8]
+  98              	.LBE4:
+  99              		.loc 1 9 3 view .LVU24
+ 100              		.loc 1 9 3 view .LVU25
+  10:Function/Src/key.c **** 
+  11:Function/Src/key.c ****   gpio_init_struct.Pin   = KEY0_GPIO_PIN;
+ 101              		.loc 1 11 3 view .LVU26
+ 102              		.loc 1 11 26 is_stmt 0 view .LVU27
+ 103 0044 0423     		movs	r3, #4
+ 104 0046 0393     		str	r3, [sp, #12]
+ARM GAS  C:\Users\Aletter1\AppData\Local\Temp\ccrnF0ch.s 			page 3
+
+
+  12:Function/Src/key.c ****   gpio_init_struct.Mode  = KEY0_GPIO_MODE;
+ 105              		.loc 1 12 3 is_stmt 1 view .LVU28
+ 106              		.loc 1 12 26 is_stmt 0 view .LVU29
+ 107 0048 4FF40416 		mov	r6, #2162688
+ 108 004c 0496     		str	r6, [sp, #16]
+  13:Function/Src/key.c ****   gpio_init_struct.Pull  = GPIO_PULLUP;
+ 109              		.loc 1 13 3 is_stmt 1 view .LVU30
+ 110              		.loc 1 13 26 is_stmt 0 view .LVU31
+ 111 004e 0125     		movs	r5, #1
+ 112 0050 0595     		str	r5, [sp, #20]
+  14:Function/Src/key.c ****   gpio_init_struct.Speed = GPIO_SPEED_HIGH;
+ 113              		.loc 1 14 3 is_stmt 1 view .LVU32
+ 114              		.loc 1 14 26 is_stmt 0 view .LVU33
+ 115 0052 0323     		movs	r3, #3
+ 116 0054 0693     		str	r3, [sp, #24]
+  15:Function/Src/key.c ****   HAL_GPIO_Init(KEY0_GPIO_PORT, &gpio_init_struct); /* KEY0引脚模式设置,上拉输入 */
+ 117              		.loc 1 15 3 is_stmt 1 view .LVU34
+ 118 0056 0E4C     		ldr	r4, .L3+4
+ 119 0058 03A9     		add	r1, sp, #12
+ 120 005a 2046     		mov	r0, r4
+ 121 005c FFF7FEFF 		bl	HAL_GPIO_Init
+ 122              	.LVL0:
+  16:Function/Src/key.c **** 
+  17:Function/Src/key.c ****   gpio_init_struct.Pin   = KEY1_GPIO_PIN;           /* KEY1引脚 */
+ 123              		.loc 1 17 3 view .LVU35
+ 124              		.loc 1 17 26 is_stmt 0 view .LVU36
+ 125 0060 0823     		movs	r3, #8
+ 126 0062 0393     		str	r3, [sp, #12]
+  18:Function/Src/key.c ****   gpio_init_struct.Mode  = KEY1_GPIO_MODE;          /* 输入 */
+ 127              		.loc 1 18 3 is_stmt 1 view .LVU37
+ 128              		.loc 1 18 26 is_stmt 0 view .LVU38
+ 129 0064 0496     		str	r6, [sp, #16]
+  19:Function/Src/key.c ****   gpio_init_struct.Pull  = GPIO_PULLUP;             /* 上拉 */
+ 130              		.loc 1 19 3 is_stmt 1 view .LVU39
+ 131              		.loc 1 19 26 is_stmt 0 view .LVU40
+ 132 0066 0595     		str	r5, [sp, #20]
+  20:Function/Src/key.c ****   gpio_init_struct.Speed = GPIO_SPEED_FREQ_HIGH;    /* 高速 */
+ 133              		.loc 1 20 3 is_stmt 1 view .LVU41
+ 134              		.loc 1 20 26 is_stmt 0 view .LVU42
+ 135 0068 0227     		movs	r7, #2
+ 136 006a 0697     		str	r7, [sp, #24]
+  21:Function/Src/key.c ****   HAL_GPIO_Init(KEY1_GPIO_PORT, &gpio_init_struct); /* KEY1引脚模式设置,上拉输入 */
+ 137              		.loc 1 21 3 is_stmt 1 view .LVU43
+ 138 006c 03A9     		add	r1, sp, #12
+ 139 006e 2046     		mov	r0, r4
+ 140 0070 FFF7FEFF 		bl	HAL_GPIO_Init
+ 141              	.LVL1:
+  22:Function/Src/key.c **** 
+  23:Function/Src/key.c ****   gpio_init_struct.Pin   = KEY2_GPIO_PIN;           /* KEY2引脚 */
+ 142              		.loc 1 23 3 view .LVU44
+ 143              		.loc 1 23 26 is_stmt 0 view .LVU45
+ 144 0074 1023     		movs	r3, #16
+ 145 0076 0393     		str	r3, [sp, #12]
+  24:Function/Src/key.c ****   gpio_init_struct.Mode  = KEY2_GPIO_MODE;          /* 输入 */
+ 146              		.loc 1 24 3 is_stmt 1 view .LVU46
+ 147              		.loc 1 24 26 is_stmt 0 view .LVU47
+ 148 0078 0496     		str	r6, [sp, #16]
+ARM GAS  C:\Users\Aletter1\AppData\Local\Temp\ccrnF0ch.s 			page 4
+
+
+  25:Function/Src/key.c ****   gpio_init_struct.Pull  = GPIO_PULLUP;             /* 上拉 */
+ 149              		.loc 1 25 3 is_stmt 1 view .LVU48
+ 150              		.loc 1 25 26 is_stmt 0 view .LVU49
+ 151 007a 0595     		str	r5, [sp, #20]
+  26:Function/Src/key.c ****   gpio_init_struct.Speed = GPIO_SPEED_FREQ_HIGH;    /* 高速 */
+ 152              		.loc 1 26 3 is_stmt 1 view .LVU50
+ 153              		.loc 1 26 26 is_stmt 0 view .LVU51
+ 154 007c 0697     		str	r7, [sp, #24]
+  27:Function/Src/key.c ****   HAL_GPIO_Init(KEY2_GPIO_PORT, &gpio_init_struct); /* KEY2引脚模式设置,上拉输入 */
+ 155              		.loc 1 27 3 is_stmt 1 view .LVU52
+ 156 007e 03A9     		add	r1, sp, #12
+ 157 0080 2046     		mov	r0, r4
+ 158 0082 FFF7FEFF 		bl	HAL_GPIO_Init
+ 159              	.LVL2:
+  28:Function/Src/key.c **** }
+ 160              		.loc 1 28 1 is_stmt 0 view .LVU53
+ 161 0086 09B0     		add	sp, sp, #36
+ 162              	.LCFI2:
+ 163              		.cfi_def_cfa_offset 20
+ 164              		@ sp needed
+ 165 0088 F0BD     		pop	{r4, r5, r6, r7, pc}
+ 166              	.L4:
+ 167 008a 00BF     		.align	2
+ 168              	.L3:
+ 169 008c 00380240 		.word	1073887232
+ 170 0090 00100240 		.word	1073876992
+ 171              		.cfi_endproc
+ 172              	.LFE134:
+ 174              		.section	.text.key_scan,"ax",%progbits
+ 175              		.align	1
+ 176              		.global	key_scan
+ 177              		.syntax unified
+ 178              		.thumb
+ 179              		.thumb_func
+ 181              	key_scan:
+ 182              	.LVL3:
+ 183              	.LFB135:
+  29:Function/Src/key.c **** uint8_t key_scan(uint8_t mode)
+  30:Function/Src/key.c **** {
+ 184              		.loc 1 30 1 is_stmt 1 view -0
+ 185              		.cfi_startproc
+ 186              		@ args = 0, pretend = 0, frame = 0
+ 187              		@ frame_needed = 0, uses_anonymous_args = 0
+ 188              		.loc 1 30 1 is_stmt 0 view .LVU55
+ 189 0000 10B5     		push	{r4, lr}
+ 190              	.LCFI3:
+ 191              		.cfi_def_cfa_offset 8
+ 192              		.cfi_offset 4, -8
+ 193              		.cfi_offset 14, -4
+  31:Function/Src/key.c ****   static uint8_t key_up = 1; /* 按键按松开标志 */
+ 194              		.loc 1 31 3 is_stmt 1 view .LVU56
+  32:Function/Src/key.c ****   uint8_t keyval        = 0;
+ 195              		.loc 1 32 3 view .LVU57
+ 196              	.LVL4:
+  33:Function/Src/key.c ****   if (mode) key_up = 1; /* 支持连按 */
+ 197              		.loc 1 33 3 view .LVU58
+ 198              		.loc 1 33 6 is_stmt 0 view .LVU59
+ARM GAS  C:\Users\Aletter1\AppData\Local\Temp\ccrnF0ch.s 			page 5
+
+
+ 199 0002 10B1     		cbz	r0, .L6
+ 200              		.loc 1 33 13 is_stmt 1 discriminator 1 view .LVU60
+ 201              		.loc 1 33 20 is_stmt 0 discriminator 1 view .LVU61
+ 202 0004 274B     		ldr	r3, .L23
+ 203 0006 0122     		movs	r2, #1
+ 204 0008 1A70     		strb	r2, [r3]
+ 205              	.L6:
+  34:Function/Src/key.c **** 
+  35:Function/Src/key.c ****   if (key_up && (KEY0 == 0 || KEY1 == 0 || KEY2 == 0)) /* 按键松开标志为1, 且有任意一�
+ 206              		.loc 1 35 3 is_stmt 1 view .LVU62
+ 207              		.loc 1 35 7 is_stmt 0 view .LVU63
+ 208 000a 264B     		ldr	r3, .L23
+ 209 000c 1B78     		ldrb	r3, [r3]	@ zero_extendqisi2
+ 210              		.loc 1 35 6 view .LVU64
+ 211 000e 43B3     		cbz	r3, .L7
+ 212              		.loc 1 35 18 discriminator 1 view .LVU65
+ 213 0010 0421     		movs	r1, #4
+ 214 0012 2548     		ldr	r0, .L23+4
+ 215              	.LVL5:
+ 216              		.loc 1 35 18 discriminator 1 view .LVU66
+ 217 0014 FFF7FEFF 		bl	HAL_GPIO_ReadPin
+ 218              	.LVL6:
+ 219              		.loc 1 35 14 discriminator 1 view .LVU67
+ 220 0018 20B1     		cbz	r0, .L8
+ 221              		.loc 1 35 31 discriminator 2 view .LVU68
+ 222 001a 0821     		movs	r1, #8
+ 223 001c 2248     		ldr	r0, .L23+4
+ 224 001e FFF7FEFF 		bl	HAL_GPIO_ReadPin
+ 225              	.LVL7:
+ 226              		.loc 1 35 28 discriminator 2 view .LVU69
+ 227 0022 C0B9     		cbnz	r0, .L19
+ 228              	.L8:
+  36:Function/Src/key.c ****   {
+  37:Function/Src/key.c ****     HAL_Delay(10); /* 去抖动 */
+ 229              		.loc 1 37 5 is_stmt 1 view .LVU70
+ 230 0024 0A20     		movs	r0, #10
+ 231 0026 FFF7FEFF 		bl	HAL_Delay
+ 232              	.LVL8:
+  38:Function/Src/key.c ****     key_up = 0;
+ 233              		.loc 1 38 5 view .LVU71
+ 234              		.loc 1 38 12 is_stmt 0 view .LVU72
+ 235 002a 1E4B     		ldr	r3, .L23
+ 236 002c 0022     		movs	r2, #0
+ 237 002e 1A70     		strb	r2, [r3]
+  39:Function/Src/key.c ****     if (KEY0 == 0) keyval = KEY0_PRES;
+ 238              		.loc 1 39 5 is_stmt 1 view .LVU73
+ 239              		.loc 1 39 9 is_stmt 0 view .LVU74
+ 240 0030 0421     		movs	r1, #4
+ 241 0032 1D48     		ldr	r0, .L23+4
+ 242 0034 FFF7FEFF 		bl	HAL_GPIO_ReadPin
+ 243              	.LVL9:
+ 244              		.loc 1 39 8 view .LVU75
+ 245 0038 E0B1     		cbz	r0, .L12
+  32:Function/Src/key.c ****   if (mode) key_up = 1; /* 支持连按 */
+ 246              		.loc 1 32 11 view .LVU76
+ 247 003a 0024     		movs	r4, #0
+ 248              	.L9:
+ARM GAS  C:\Users\Aletter1\AppData\Local\Temp\ccrnF0ch.s 			page 6
+
+
+ 249              	.LVL10:
+  40:Function/Src/key.c ****     if (KEY1 == 0) keyval = KEY1_PRES;
+ 250              		.loc 1 40 5 is_stmt 1 view .LVU77
+ 251              		.loc 1 40 9 is_stmt 0 view .LVU78
+ 252 003c 0821     		movs	r1, #8
+ 253 003e 1A48     		ldr	r0, .L23+4
+ 254 0040 FFF7FEFF 		bl	HAL_GPIO_ReadPin
+ 255              	.LVL11:
+ 256              		.loc 1 40 8 view .LVU79
+ 257 0044 00B9     		cbnz	r0, .L10
+ 258              		.loc 1 40 27 view .LVU80
+ 259 0046 0224     		movs	r4, #2
+ 260              	.LVL12:
+ 261              	.L10:
+  41:Function/Src/key.c ****     if (KEY2 == 0) keyval = KEY2_PRES;
+ 262              		.loc 1 41 5 is_stmt 1 view .LVU81
+ 263              		.loc 1 41 9 is_stmt 0 view .LVU82
+ 264 0048 1021     		movs	r1, #16
+ 265 004a 1748     		ldr	r0, .L23+4
+ 266 004c FFF7FEFF 		bl	HAL_GPIO_ReadPin
+ 267              	.LVL13:
+ 268              		.loc 1 41 8 view .LVU83
+ 269 0050 70B9     		cbnz	r0, .L11
+ 270              		.loc 1 41 27 view .LVU84
+ 271 0052 0324     		movs	r4, #3
+ 272              	.LVL14:
+ 273              		.loc 1 41 27 view .LVU85
+ 274 0054 0CE0     		b	.L11
+ 275              	.LVL15:
+ 276              	.L19:
+  35:Function/Src/key.c ****   {
+ 277              		.loc 1 35 44 discriminator 3 view .LVU86
+ 278 0056 1021     		movs	r1, #16
+ 279 0058 1348     		ldr	r0, .L23+4
+ 280 005a FFF7FEFF 		bl	HAL_GPIO_ReadPin
+ 281              	.LVL16:
+  35:Function/Src/key.c ****   {
+ 282              		.loc 1 35 41 discriminator 3 view .LVU87
+ 283 005e 0028     		cmp	r0, #0
+ 284 0060 E0D0     		beq	.L8
+ 285              	.L7:
+  42:Function/Src/key.c ****   } else if (KEY0 == 1 && KEY1 == 1 && KEY2 == 1) /* 没有任何按键按下, 标记按键松开 *
+ 286              		.loc 1 42 10 is_stmt 1 view .LVU88
+ 287              		.loc 1 42 14 is_stmt 0 view .LVU89
+ 288 0062 0421     		movs	r1, #4
+ 289 0064 1048     		ldr	r0, .L23+4
+ 290 0066 FFF7FEFF 		bl	HAL_GPIO_ReadPin
+ 291              	.LVL17:
+ 292              		.loc 1 42 13 view .LVU90
+ 293 006a 0128     		cmp	r0, #1
+ 294 006c 04D0     		beq	.L20
+  32:Function/Src/key.c ****   if (mode) key_up = 1; /* 支持连按 */
+ 295              		.loc 1 32 11 view .LVU91
+ 296 006e 0024     		movs	r4, #0
+ 297              	.LVL18:
+ 298              	.L11:
+  43:Function/Src/key.c ****   {
+ARM GAS  C:\Users\Aletter1\AppData\Local\Temp\ccrnF0ch.s 			page 7
+
+
+  44:Function/Src/key.c ****     key_up = 1;
+  45:Function/Src/key.c ****   }
+  46:Function/Src/key.c ****   return keyval; /* 返回键值 */
+ 299              		.loc 1 46 3 is_stmt 1 view .LVU92
+  47:Function/Src/key.c **** }
+ 300              		.loc 1 47 1 is_stmt 0 view .LVU93
+ 301 0070 2046     		mov	r0, r4
+ 302 0072 10BD     		pop	{r4, pc}
+ 303              	.LVL19:
+ 304              	.L12:
+  39:Function/Src/key.c ****     if (KEY1 == 0) keyval = KEY1_PRES;
+ 305              		.loc 1 39 27 view .LVU94
+ 306 0074 0124     		movs	r4, #1
+ 307 0076 E1E7     		b	.L9
+ 308              	.L20:
+  42:Function/Src/key.c ****   {
+ 309              		.loc 1 42 27 discriminator 1 view .LVU95
+ 310 0078 0821     		movs	r1, #8
+ 311 007a 0B48     		ldr	r0, .L23+4
+ 312 007c FFF7FEFF 		bl	HAL_GPIO_ReadPin
+ 313              	.LVL20:
+  42:Function/Src/key.c ****   {
+ 314              		.loc 1 42 24 discriminator 1 view .LVU96
+ 315 0080 0128     		cmp	r0, #1
+ 316 0082 01D0     		beq	.L21
+  32:Function/Src/key.c ****   if (mode) key_up = 1; /* 支持连按 */
+ 317              		.loc 1 32 11 view .LVU97
+ 318 0084 0024     		movs	r4, #0
+ 319 0086 F3E7     		b	.L11
+ 320              	.L21:
+  42:Function/Src/key.c ****   {
+ 321              		.loc 1 42 40 discriminator 2 view .LVU98
+ 322 0088 1021     		movs	r1, #16
+ 323 008a 0748     		ldr	r0, .L23+4
+ 324 008c FFF7FEFF 		bl	HAL_GPIO_ReadPin
+ 325              	.LVL21:
+  42:Function/Src/key.c ****   {
+ 326              		.loc 1 42 37 discriminator 2 view .LVU99
+ 327 0090 0128     		cmp	r0, #1
+ 328 0092 01D0     		beq	.L22
+  32:Function/Src/key.c ****   if (mode) key_up = 1; /* 支持连按 */
+ 329              		.loc 1 32 11 view .LVU100
+ 330 0094 0024     		movs	r4, #0
+ 331 0096 EBE7     		b	.L11
+ 332              	.L22:
+  44:Function/Src/key.c ****   }
+ 333              		.loc 1 44 5 is_stmt 1 view .LVU101
+  44:Function/Src/key.c ****   }
+ 334              		.loc 1 44 12 is_stmt 0 view .LVU102
+ 335 0098 024B     		ldr	r3, .L23
+ 336 009a 0122     		movs	r2, #1
+ 337 009c 1A70     		strb	r2, [r3]
+  32:Function/Src/key.c ****   if (mode) key_up = 1; /* 支持连按 */
+ 338              		.loc 1 32 11 view .LVU103
+ 339 009e 0024     		movs	r4, #0
+ 340 00a0 E6E7     		b	.L11
+ 341              	.L24:
+ARM GAS  C:\Users\Aletter1\AppData\Local\Temp\ccrnF0ch.s 			page 8
+
+
+ 342 00a2 00BF     		.align	2
+ 343              	.L23:
+ 344 00a4 00000000 		.word	.LANCHOR0
+ 345 00a8 00100240 		.word	1073876992
+ 346              		.cfi_endproc
+ 347              	.LFE135:
+ 349              		.section	.data.key_up.0,"aw"
+ 350              		.set	.LANCHOR0,. + 0
+ 353              	key_up.0:
+ 354 0000 01       		.byte	1
+ 355              		.text
+ 356              	.Letext0:
+ 357              		.file 2 "d:\\program files (x86)\\gnutools\\gcc-arm-none-eabi-win32\\arm-none-eabi\\include\\machi
+ 358              		.file 3 "d:\\program files (x86)\\gnutools\\gcc-arm-none-eabi-win32\\arm-none-eabi\\include\\sys\\
+ 359              		.file 4 "Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f407xx.h"
+ 360              		.file 5 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_gpio.h"
+ 361              		.file 6 "Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h"
+ARM GAS  C:\Users\Aletter1\AppData\Local\Temp\ccrnF0ch.s 			page 9
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 key.c
+C:\Users\Aletter1\AppData\Local\Temp\ccrnF0ch.s:20     .text.KEY_GPIO_Init:00000000 $t
+C:\Users\Aletter1\AppData\Local\Temp\ccrnF0ch.s:26     .text.KEY_GPIO_Init:00000000 KEY_GPIO_Init
+C:\Users\Aletter1\AppData\Local\Temp\ccrnF0ch.s:169    .text.KEY_GPIO_Init:0000008c $d
+C:\Users\Aletter1\AppData\Local\Temp\ccrnF0ch.s:175    .text.key_scan:00000000 $t
+C:\Users\Aletter1\AppData\Local\Temp\ccrnF0ch.s:181    .text.key_scan:00000000 key_scan
+C:\Users\Aletter1\AppData\Local\Temp\ccrnF0ch.s:344    .text.key_scan:000000a4 $d
+C:\Users\Aletter1\AppData\Local\Temp\ccrnF0ch.s:353    .data.key_up.0:00000000 key_up.0
+
+UNDEFINED SYMBOLS
+HAL_GPIO_Init
+HAL_GPIO_ReadPin
+HAL_Delay

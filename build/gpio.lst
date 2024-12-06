@@ -1,0 +1,114 @@
+ARM GAS  C:\Users\Aletter1\AppData\Local\Temp\ccJUx4Ne.s 			page 1
+
+
+   1              		.cpu cortex-m4
+   2              		.arch armv7e-m
+   3              		.fpu fpv4-sp-d16
+   4              		.eabi_attribute 27, 1
+   5              		.eabi_attribute 28, 1
+   6              		.eabi_attribute 20, 1
+   7              		.eabi_attribute 21, 1
+   8              		.eabi_attribute 23, 3
+   9              		.eabi_attribute 24, 1
+  10              		.eabi_attribute 25, 1
+  11              		.eabi_attribute 26, 1
+  12              		.eabi_attribute 30, 1
+  13              		.eabi_attribute 34, 1
+  14              		.eabi_attribute 18, 4
+  15              		.file	"gpio.c"
+  16              		.text
+  17              	.Ltext0:
+  18              		.cfi_sections	.debug_frame
+  19              		.section	.text.MX_GPIO_Init,"ax",%progbits
+  20              		.align	1
+  21              		.global	MX_GPIO_Init
+  22              		.syntax unified
+  23              		.thumb
+  24              		.thumb_func
+  26              	MX_GPIO_Init:
+  27              	.LFB134:
+  28              		.file 1 "BSP/Src/gpio.c"
+   1:BSP/Src/gpio.c **** /* USER CODE BEGIN Header */
+   2:BSP/Src/gpio.c **** /**
+   3:BSP/Src/gpio.c ****  ******************************************************************************
+   4:BSP/Src/gpio.c ****  * @file    gpio.c
+   5:BSP/Src/gpio.c ****  * @brief   This file provides code for the configuration
+   6:BSP/Src/gpio.c ****  *          of all used GPIO pins.
+   7:BSP/Src/gpio.c ****  ******************************************************************************
+   8:BSP/Src/gpio.c ****  * @attention
+   9:BSP/Src/gpio.c ****  *
+  10:BSP/Src/gpio.c ****  * Copyright (c) 2024 STMicroelectronics.
+  11:BSP/Src/gpio.c ****  * All rights reserved.
+  12:BSP/Src/gpio.c ****  *
+  13:BSP/Src/gpio.c ****  * This software is licensed under terms that can be found in the LICENSE file
+  14:BSP/Src/gpio.c ****  * in the root directory of this software component.
+  15:BSP/Src/gpio.c ****  * If no LICENSE file comes with this software, it is provided AS-IS.
+  16:BSP/Src/gpio.c ****  *
+  17:BSP/Src/gpio.c ****  ******************************************************************************
+  18:BSP/Src/gpio.c ****  */
+  19:BSP/Src/gpio.c **** /* USER CODE END Header */
+  20:BSP/Src/gpio.c **** 
+  21:BSP/Src/gpio.c **** /* Includes ------------------------------------------------------------------*/
+  22:BSP/Src/gpio.c **** #include "gpio.h"
+  23:BSP/Src/gpio.c **** 
+  24:BSP/Src/gpio.c **** /* USER CODE BEGIN 0 */
+  25:BSP/Src/gpio.c **** 
+  26:BSP/Src/gpio.c **** /* USER CODE END 0 */
+  27:BSP/Src/gpio.c **** 
+  28:BSP/Src/gpio.c **** /*----------------------------------------------------------------------------*/
+  29:BSP/Src/gpio.c **** /* Configure GPIO                                                             */
+  30:BSP/Src/gpio.c **** /*----------------------------------------------------------------------------*/
+ARM GAS  C:\Users\Aletter1\AppData\Local\Temp\ccJUx4Ne.s 			page 2
+
+
+  31:BSP/Src/gpio.c **** /* USER CODE BEGIN 1 */
+  32:BSP/Src/gpio.c **** 
+  33:BSP/Src/gpio.c **** /* USER CODE END 1 */
+  34:BSP/Src/gpio.c **** 
+  35:BSP/Src/gpio.c **** /** Configure pins as
+  36:BSP/Src/gpio.c ****  * Analog
+  37:BSP/Src/gpio.c ****  * Input
+  38:BSP/Src/gpio.c ****  * Output
+  39:BSP/Src/gpio.c ****  * EVENT_OUT
+  40:BSP/Src/gpio.c ****  * EXTI
+  41:BSP/Src/gpio.c ****  */
+  42:BSP/Src/gpio.c **** 
+  43:BSP/Src/gpio.c **** void MX_GPIO_Init(void)
+  44:BSP/Src/gpio.c **** {
+  29              		.loc 1 44 1 view -0
+  30              		.cfi_startproc
+  31              		@ args = 0, pretend = 0, frame = 0
+  32              		@ frame_needed = 0, uses_anonymous_args = 0
+  33 0000 08B5     		push	{r3, lr}
+  34              	.LCFI0:
+  35              		.cfi_def_cfa_offset 8
+  36              		.cfi_offset 3, -8
+  37              		.cfi_offset 14, -4
+  45:BSP/Src/gpio.c ****   LED_GPIO_Init();
+  38              		.loc 1 45 3 view .LVU1
+  39 0002 FFF7FEFF 		bl	LED_GPIO_Init
+  40              	.LVL0:
+  46:BSP/Src/gpio.c ****   KEY_GPIO_Init();
+  41              		.loc 1 46 3 view .LVU2
+  42 0006 FFF7FEFF 		bl	KEY_GPIO_Init
+  43              	.LVL1:
+  47:BSP/Src/gpio.c **** }
+  44              		.loc 1 47 1 is_stmt 0 view .LVU3
+  45 000a 08BD     		pop	{r3, pc}
+  46              		.cfi_endproc
+  47              	.LFE134:
+  49              		.text
+  50              	.Letext0:
+  51              		.file 2 "Function/Inc/led.h"
+  52              		.file 3 "Function/Inc/key.h"
+ARM GAS  C:\Users\Aletter1\AppData\Local\Temp\ccJUx4Ne.s 			page 3
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 gpio.c
+C:\Users\Aletter1\AppData\Local\Temp\ccJUx4Ne.s:20     .text.MX_GPIO_Init:00000000 $t
+C:\Users\Aletter1\AppData\Local\Temp\ccJUx4Ne.s:26     .text.MX_GPIO_Init:00000000 MX_GPIO_Init
+
+UNDEFINED SYMBOLS
+LED_GPIO_Init
+KEY_GPIO_Init

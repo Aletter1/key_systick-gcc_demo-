@@ -1,0 +1,27 @@
+{
+    "configurations": [
+        {
+            "name": "windows-gcc-arm",
+            "includePath": [
+                "${workspaceFolder}/**"
+            ],
+            "compilerPath": "D:/Program Files (x86)/GNUTools/mingw64/bin/gcc.exe",
+            "cStandard": "gnu11",
+            "cppStandard": "c++11",
+            "compilerArgs": [
+                "-mcpu=cortex-m4",
+                "-mfpu=fpv4-sp-d16",
+                "-mfloat-abi=hard",
+                "-mthumb"
+            ],
+            "defines": [
+                "_DEBUG",
+                "UNICODE",
+                "_UNICODE",
+                "STM32F407xx",
+                "USE_HAL_DRIVER"
+            ]
+        }
+    ],
+    "version": 4
+}
